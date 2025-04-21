@@ -13,12 +13,12 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/argocd
+          - path: kubernetes/apps/metallb-system
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
       annotations:
-        argocd.argoproj.io/sync-wave: '0'
+        argocd.argoproj.io/sync-wave: '1'
     spec:
       project: default
       destination:
