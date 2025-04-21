@@ -17,15 +17,13 @@ spec:
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
-      annotations:
-        argocd.argoproj.io/sync-wave: '1'
     spec:
       project: default
       destination:
         name: in-cluster
         namespace: '{{.path.basenameNormalized}}'
       source:
-        repoURL: in-cluster
+        repoURL: https://github.com/vaisanenj/gitops.git
         path: '{{.path.path}}'
         targetRevision: master
       syncPolicy:
