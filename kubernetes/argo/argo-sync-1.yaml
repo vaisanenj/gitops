@@ -4,8 +4,6 @@ metadata:
   name: metallb-system
   namespace: argocd
 spec:
-  syncPolicy:
-    applicationsSync: create-only
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
@@ -20,7 +18,7 @@ spec:
     spec:
       project: default
       destination:
-        name: in-cluster
+        server: https://kubernetes.default.svc
         namespace: '{{.path.basenameNormalized}}'
       source:
         repoURL: https://github.com/vaisanenj/gitops.git
