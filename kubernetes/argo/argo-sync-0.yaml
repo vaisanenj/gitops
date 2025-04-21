@@ -20,13 +20,13 @@ spec:
       annotations:
         argocd.argoproj.io/sync-wave: '0'
     spec:
-      destination:
-        name: in-cluster
-        namespace: '{{ (split "/" .path.path)._3 }}'
       project: default
+      destination:
+        name: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 1}}-{{.path.basenameNormalized}}'
       source:
         repoURL: https://github.com/vaisanenj/gitops.git
-        path: '{{index .path.segments 1}}-{{.path.basenameNormalized}}'
+        path: '{{.path.path}}'
         targetRevision: master
       syncPolicy:
         syncOptions:
