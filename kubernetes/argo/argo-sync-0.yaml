@@ -25,10 +25,14 @@ spec:
         name: https://kubernetes.default.svc
         namespace: '{{index .path.segments 1}}-{{.path.basenameNormalized}}'
       source:
-        repoURL: https://github.com/vaisanenj/gitops.git
+        repoURL: in-cluster
         path: '{{.path.path}}'
         targetRevision: master
       syncPolicy:
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
         syncOptions:
           - CreateNamespace=true
           - RespectIgnoreDifferences=true
