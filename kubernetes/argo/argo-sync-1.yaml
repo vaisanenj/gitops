@@ -11,7 +11,7 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/metallb-system
+          - path: kubernetes/apps/*
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'

@@ -1,6 +1,0 @@
-apiVersion: v2
-name: metallb-system
-dependencies:
-  - name: metallb-system
-    version: v0.14.9
-    repository: https://metallb.github.io/metallb
