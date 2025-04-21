@@ -22,7 +22,7 @@ spec:
     spec:
       project: default
       destination:
-        name: https://kubernetes.default.svc
+        name: in-cluster
         namespace: '{{.path.basenameNormalized}}'
       source:
         repoURL: in-cluster
