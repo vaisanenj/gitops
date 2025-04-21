@@ -29,10 +29,7 @@ spec:
         path: '{{.path.path}}'
         targetRevision: master
       syncPolicy:
-      syncPolicy:
-        automated:
-          prune: false
-          selfHeal: false
+        automated: {}
         syncOptions:
           - CreateNamespace=true
           - RespectIgnoreDifferences=true
