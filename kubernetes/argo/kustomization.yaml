@@ -5,4 +5,4 @@ namespace: argocd
 resources:
   - argocd-ns.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.14.10/manifests/install.yaml
-  - argocd-syn-apps.yaml
+  - argocd-sync-apps.yaml
