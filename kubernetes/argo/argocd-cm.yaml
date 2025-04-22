@@ -4,4 +4,4 @@ metadata:
   name: argocd-cm
   namespace: argocd
 data:
-  kustomize.buildOptions: --enable-helm
+  kustomize.buildOptions: "--enable-alpha-plugins --enable-helm"
