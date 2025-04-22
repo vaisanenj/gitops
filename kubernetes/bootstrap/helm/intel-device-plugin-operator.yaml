@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: intel-device-plugin-operator
+  namespace: argocd
+spec:
+  destination:
+    namespace: intel-device-plugin-operator
+    server: 'https://kubernetes.default.svc'
+  sources:
+    - repoURL: 'https://intel.github.io/helm-charts/'
+      targetRevision: 0.17.2
+      chart: intel-device-plugin-operator
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
