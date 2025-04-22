@@ -1,8 +1,8 @@
-ports:
-  local: 
-    port: 9443
-    expose: true
-    exposedPort: 8443
+#ports:
+#  local: 
+#    port: 9443
+#    expose: true
+#    exposedPort: 8443
 
 #ingressRoute:
 #  dashboard:
