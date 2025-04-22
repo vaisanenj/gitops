@@ -13,12 +13,10 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/argocd
+          - path: kubernetes/apps/
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
-      annotations:
-        argocd.argoproj.io/sync-wave: '0'
     spec:
       project: default
       destination:
