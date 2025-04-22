@@ -3,10 +3,11 @@ kind: Kustomization
 
 namespace: argocd
 resources:
+  - argocd-ns.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.2/manifests/install.yaml
   
 configMapGenerator:
   - name: argocd-cm
-    behavior: replace
+    behavior: merge
     files:
       - argocd-cm.yaml
