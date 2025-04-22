@@ -9,4 +9,4 @@ configMapGenerator:
   - name: argocd-cm
     behavior: merge
     files:
-      - argocd-cm.yaml
+      - argocd-cm.config
