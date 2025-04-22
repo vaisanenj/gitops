@@ -5,6 +5,7 @@ namespace: argocd
 resources:
   - argocd-ns.yaml
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.2/manifests/install.yaml
+  - argo-sync-1.yaml
   
 configMapGenerator:
   - name: argocd-cm
