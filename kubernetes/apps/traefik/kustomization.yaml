@@ -1,0 +1,12 @@
+helmCharts:
+- name: traefik
+  version: 35.0.0
+  repo: https://traefik.github.io/charts
+#  includeCRDs: false
+#  valuesInline:
+#    minecraftServer:
+#      eula: true
+#      difficulty: hard
+#      rcon:
+#        enabled: true
+#  releaseName: moria
