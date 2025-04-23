@@ -39,5 +39,5 @@ traefik:
       enabled: true
       matchRule: Host(`traefik-dashboard.homelab.local`)
       entryPoints: ['local-https']
-    tls:
-      secretName: traefik-certificate-secret
+      tls:
+        secretName: traefik-certificate-secret
