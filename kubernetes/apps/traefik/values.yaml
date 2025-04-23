@@ -20,13 +20,13 @@ traefik:
       expose:
         default: true
     private-web:
-      port: 8000
+      port: 80
       expose:
         default: false
         internal: true
       exposedPort: 80
     private-websecure:
-      port: 8443
+      port: 443
       expose:
         default: false
         internal: true
