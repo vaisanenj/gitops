@@ -32,12 +32,13 @@ traefik:
         internal: true
       exposedPort: 8443
 
+  ingressRoute:
+    dashboard:
+      enabled: true
+
   service:
     additionalServices:
       internal:
         type: ClusterIP
         labels:
           traefik-service-label: internal
-
-#    dashboard:
-#      enabled: true
