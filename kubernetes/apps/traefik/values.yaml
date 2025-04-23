@@ -16,20 +16,18 @@ traefik:
     web:
       expose:
         default: true
+      exposedPort: 8080
     websecure:
       expose:
         default: true
+      exposedPort: 8443
     local-web:
-      port: 80
       expose:
-        default: false
-        internal: true
+        default: true
       exposedPort: 80
     local-https:
-      port: 443
       expose:
-        default: false
-        internal: true
+        default: true
       exposedPort: 443
 
   ingressRoute:
@@ -38,9 +36,9 @@ traefik:
       matchRule: Host(`homelab.local`) && (PathPrefix(`/dashboard`)
       entryPoints: ['local-https']
 
-  service:
-    additionalServices:
-      internal:
-        type: LoadBalancer
-        labels:
-          traefik-service-label: internal
+#  service:
+#    additionalServices:
+#      internal:
+#        type: LoadBalancer
+#        labels:
+#          traefik-service-label: internal
