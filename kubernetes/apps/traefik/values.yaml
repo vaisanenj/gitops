@@ -21,7 +21,7 @@ traefik:
       expose:
         default: true
       exposedPort: 8443
-    local-web:
+    local-http:
       port: 80
       expose:
         default: true
