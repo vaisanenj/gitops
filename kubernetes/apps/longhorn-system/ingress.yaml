@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   name: ingress-longhorn
   annotations:
-    spec.ingressClassName: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: local-https
+    spec.ingressClassName: internal
+    traefik.ingress.kubernetes.io/router.entrypoints: local-http
 spec:
   rules:
   - host: longhorn.homelab.local
