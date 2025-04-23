@@ -37,8 +37,8 @@ traefik:
   ingressRoute:
     dashboard:
       enabled: true
-      matchRule: Host(`homelab.local`) && (PathPrefix(`/dashboard`)
-      entryPoints: ['local-https']
+      matchRule: Host(`traefik-dashboard.homelab.local`)
+      entryPoints: ['local-http', 'local-https', 'web', 'websecure']
 
 #  service:
 #    additionalServices:
