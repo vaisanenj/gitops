@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base
+
+configMapGenerator:
+  - name: configmap-env
+    env: config-env.properties
+  - name: configmap-roles
+    env: config-roles.properties
+  - name: configmap-difficulty
+    env: config-difficulty.properties
+
+patches:
+  - target:
+      kind: Service
+      name: svc-enshrouded
+    patch: |
+      - op: replace
+        path: /spec/ports/0/port
+        value: 15639

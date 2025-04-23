@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enshrouded
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc-enshrouded
+      containers:
+        - name: enshourded
+          image: mornedhels/enshrouded-server:stable-proton
+          ports:
+          - containerPort: 15637
+            name: queryport
+          resources:
+            requests:
+              cpu: "3000m"
+              memory: "4096Mi"
+          envFrom:
+            - configMapRef:
+                name: configmap-env
+            - configMapRef:
+                name: configmap-roles
+            - configMapRef:
+                name: configmap-difficulty
+          volumeMounts:
+            - name: data
+              mountPath: /opt/enshrouded

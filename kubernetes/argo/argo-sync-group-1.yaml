@@ -1,9 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: metallb-system
+  name: argo-sync-group-1
   namespace: argocd
 spec:
+  syncPolicy:
+    applicationsSync: create-only
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
@@ -11,10 +13,12 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/traefik
+          - path: kubernetes/apps/gameserver-enshrouded/*
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
+      annotations:
+        argocd.argoproj.io/sync-wave: '1'
     spec:
       project: default
       destination:

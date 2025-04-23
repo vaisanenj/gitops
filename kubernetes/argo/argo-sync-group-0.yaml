@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argo-app
+  name: argo-sync-group-0
   namespace: argocd
 spec:
   syncPolicy:
@@ -13,10 +13,16 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/*
+          - path: kubernetes/apps/cert-manager
+          - path: kubernetes/apps/inter-device-manager
+          - path: kubernetes/apps/longhorn-system
+          - path: kubernetes/apps/metallb-system
+          - path: kubernetes/apps/traefik
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
+      annotations:
+        argocd.argoproj.io/sync-wave: '0'
     spec:
       project: default
       destination:
