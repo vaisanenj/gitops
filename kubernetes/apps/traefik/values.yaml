@@ -41,6 +41,6 @@ traefik:
   service:
     additionalServices:
       internal:
-        type: ClusterIP
+        type: LoadBalancer
         labels:
           traefik-service-label: internal
