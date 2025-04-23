@@ -35,6 +35,8 @@ traefik:
   ingressRoute:
     dashboard:
       enabled: true
+      matchRule: Host(`homelab.local`) && (PathPrefix(`/dashboard`)
+      entryPoints: ['private-websecure']
 
   service:
     additionalServices:
