@@ -1,5 +1,0 @@
-apiVersion: longhorn.io/v1beta2
-kind: Setting
-metadata:
-  name: backup-target
-value: nfs://192.168.20.119:/volume2/Homelab-HDD/Backups/Longhorn
