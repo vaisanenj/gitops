@@ -19,13 +19,13 @@ traefik:
     websecure:
       expose:
         default: true
-    private-web:
+    local-web:
       port: 80
       expose:
         default: false
         internal: true
       exposedPort: 80
-    private-websecure:
+    local-https:
       port: 443
       expose:
         default: false
@@ -36,7 +36,7 @@ traefik:
     dashboard:
       enabled: true
       matchRule: Host(`homelab.local`) && (PathPrefix(`/dashboard`)
-      entryPoints: ['private-websecure']
+      entryPoints: ['local-https']
 
   service:
     additionalServices:
