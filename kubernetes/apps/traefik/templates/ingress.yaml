@@ -1,0 +1,18 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dashboard-ingressroute
+spec:
+  entryPoints:
+    - private-web
+  routes:
+    - match: Host(`vaisanen.cloud`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+    - match: Host(`vaisanen.cloud`) && (PathPrefix(`/metrics`))
+      kind: Rule
+      services:
+        - name: prometheus@internal
+          kind: TraefikService
