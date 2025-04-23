@@ -1,11 +1,23 @@
 traefik:
   ports:
-    traefik:
+    web:
       expose:
-        # Sensitive data should not be exposed on the internet
-        # => Keep this disabled !
+        default: true
+    websecure:
+      expose:
+        default: true
+    private-web:
+      port: 8000
+      expose:
         default: false
         internal: true
+      exposedPort: 80
+    private-websecure:
+      port: 8443
+      expose:
+        default: false
+        internal: true
+      exposedPort: 8443
 
   service:
     additionalServices:
