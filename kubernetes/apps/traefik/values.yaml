@@ -41,10 +41,5 @@ traefik:
       entryPoints: ['local-http', 'local-https', 'web', 'websecure']
     tls:
       secretName: traefik-certificate-secret
-
-#  service:
-#    additionalServices:
-#      internal:
-#        type: LoadBalancer
-#        labels:
-#          traefik-service-label: internal
+      hosts:
+        - traefik.vaisanen.cloud
