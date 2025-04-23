@@ -13,7 +13,7 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: master
         directories:
-          - path: kubernetes/apps/gameserver-enshrouded/*
+          - path: kubernetes/apps/gameserver-enshrouded/overlay/*
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
