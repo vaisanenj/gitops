@@ -1,18 +1,19 @@
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
+apiVersion: networking.k8s.io/v1
+kind: Ingress
 metadata:
   name: dashboard-ingressroute
+  annotations:
+    spec.ingressClassName: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: private-web
 spec:
-  entryPoints:
-    - private-web
-  routes:
-    - match: Host(`vaisanen.cloud`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
-      kind: Rule
-      services:
-        - name: api@internal
-          kind: TraefikService
-    - match: Host(`vaisanen.cloud`) && (PathPrefix(`/metrics`))
-      kind: Rule
-      services:
-        - name: prometheus@internal
-          kind: TraefikService
+  rules:
+  - host: homelab.local
+    http:
+      paths:
+      - path: /dashboard
+        pathType: Prefix
+        backend:
+          service:
+            name: api@internal
+            port:
+              number: 8080
