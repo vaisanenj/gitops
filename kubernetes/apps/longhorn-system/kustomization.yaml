@@ -3,7 +3,7 @@ kind: Kustomization
 
 namespace: longhorn-system
 resources:
-  - backup-target.yaml
+#  - backup-target.yaml
   - https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/deploy/longhorn.yaml
   - longhorn-rc-1.yaml
   - longhorn-rc-2.yaml
