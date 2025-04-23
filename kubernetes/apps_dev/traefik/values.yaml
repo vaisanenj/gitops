@@ -1,9 +1,17 @@
 ports:
-  private-web:
-    port: 8000
+  traefik:
     expose:
+      # Sensitive data should not be exposed on the internet
+      # => Keep this disabled !
       default: false
-    exposedPort: 80
+      internal: true
+
+service:
+  additionalServices:
+    internal:
+      type: ClusterIP
+      labels:
+        traefik-service-label: internal
 
 #    dashboard:
 #      enabled: true
