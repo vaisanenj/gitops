@@ -6,4 +6,5 @@ resources:
   - https://raw.githubusercontent.com/longhorn/longhorn/v1.8.1/deploy/longhorn.yaml
   - longhorn-rc-1.yaml
   - longhorn-rc-2.yaml
+  - certificate.yaml
   - ingress.yaml

@@ -6,8 +6,12 @@ metadata:
     spec.ingressClassName: traefik
     traefik.ingress.kubernetes.io/router.entrypoints: local-https
 spec:
+  tls:
+  - hosts:
+    - longhorn.vaisanen.cloud
+    secretName: longhorn-certificate-secret
   rules:
-  - host: longhorn.homelab.local
+  - host: longhorn.vaisanen.cloud
     http:
       paths:
       - path: /
