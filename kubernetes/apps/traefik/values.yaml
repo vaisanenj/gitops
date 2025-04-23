@@ -30,7 +30,7 @@ traefik:
       expose:
         default: false
         internal: true
-      exposedPort: 8443
+      exposedPort: 443
 
   ingressRoute:
     dashboard:
