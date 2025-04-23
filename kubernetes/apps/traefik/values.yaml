@@ -30,6 +30,8 @@ traefik:
       port: 443
       expose:
         default: true
+      tls:
+        enabled: true
       exposedPort: 443
 
   ingressRoute:
