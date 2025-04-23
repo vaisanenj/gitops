@@ -1,17 +1,18 @@
-ports:
-  traefik:
-    expose:
-      # Sensitive data should not be exposed on the internet
-      # => Keep this disabled !
-      default: false
-      internal: true
+traefik:
+  ports:
+    traefik:
+      expose:
+        # Sensitive data should not be exposed on the internet
+        # => Keep this disabled !
+        default: false
+        internal: true
 
-service:
-  additionalServices:
-    internal:
-      type: ClusterIP
-      labels:
-        traefik-service-label: internal
+  service:
+    additionalServices:
+      internal:
+        type: ClusterIP
+        labels:
+          traefik-service-label: internal
 
 #    dashboard:
 #      enabled: true
