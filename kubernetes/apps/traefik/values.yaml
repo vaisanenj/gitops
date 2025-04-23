@@ -41,5 +41,3 @@ traefik:
       entryPoints: ['local-http', 'local-https', 'web', 'websecure']
     tls:
       secretName: traefik-certificate-secret
-      hosts:
-        - traefik.vaisanen.cloud
