@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mariadb
+spec:
+  replicas: 2
+  template:
+    spec:
+     terminationGracePeriodSeconds: 1800
+     volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: pvc-mariadb
+     containers:
+      - name: mariadb
+        image: mariadb:10.7.8
+        env:
+        - name: TZ
+          value: Europe/Helsinki
+        - name: MYSQL_ROOT_PASSWORD
+          value: changethis
+        volumeMounts:
+         - name: data
+           mountPath: /var/lib/mysql
