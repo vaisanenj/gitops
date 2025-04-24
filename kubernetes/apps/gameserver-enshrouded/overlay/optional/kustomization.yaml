@@ -19,3 +19,7 @@ patches:
       - op: replace
         path: /spec/ports/0/port
         value: 15639
+
+replicas:
+  - name: enshrouded
+    count: 0
