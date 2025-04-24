@@ -4,8 +4,6 @@ metadata:
   name: openldap
   namespace: openldap
 spec:
-  strategy:
-    type: Recreate
   replicas: 1
   volumeClaimTemplates:
   - apiVersion: v1
