@@ -11,7 +11,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: satisfactory-pvc
+            claimName: pvc-satisfactory
       containers:
         - name: satisfactory
           image: wolveix/satisfactory-server:v1
