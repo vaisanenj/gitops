@@ -16,14 +16,14 @@ spec:
           - path: kubernetes/apps/gameserver-enshrouded/overlay/*
   template:
     metadata:
-      name: '{{path[2]}}-{{.path.basenameNormalized}}'
+      name: '{{index .path.segments 2}}-{{.path.basenameNormalized}}'
       annotations:
         argocd.argoproj.io/sync-wave: '1'
     spec:
       project: default
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path[2]}}-{{.path.basenameNormalized}}'
+        namespace: '{{index .path.segments 2}}-{{.path.basenameNormalized}}'
       source:
         repoURL: https://github.com/vaisanenj/gitops.git
         path: '{{.path.path}}'
