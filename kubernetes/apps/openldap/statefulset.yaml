@@ -9,7 +9,7 @@ spec:
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
-      name: pvc-openldap
+      name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: longhorn
