@@ -4,8 +4,6 @@ metadata:
   name: svc-openldap
   namespace: openldap
 spec:
-  selector:
-    app: openldap
   type: ClusterIP
   ports:
     - name: port-http
