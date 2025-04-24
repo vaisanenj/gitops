@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: satisfactory
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: satisfactory-pvc
+      containers:
+        - name: satisfactory
+          image: wolveix/satisfactory-server:v1
+          resources:
+            requests:
+              cpu: "3000m"
+              memory: "4096Mi"
+          envFrom:
+            - configMapRef:
+                name: configmap-env
+          volumeMounts:
+            - name: data
+              mountPath: /config
