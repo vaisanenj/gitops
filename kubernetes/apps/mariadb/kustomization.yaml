@@ -6,3 +6,8 @@ resources:
   - statefulSet.yaml
   - service.yaml
   - persistentVolumeClaim.yaml
+
+labels:
+  - includeSelectors: true
+    pairs:
+      application: mariadb
