@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: np-nextcloud
+  namespace: nextcloud 
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  - Ingress
+  egress:
+  - to: # Allow to DNS
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: "kube-system"
+    - podSelector:
+        matchLabels:
+          k8s-app: "kube-dns"
+  - to: # Allow to mariadb
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: "mariadb"
+    - podSelector:
+        matchLabels:
+          app: "mariadb"
+    ports:
+    - protocol: TCP
+      port: 3306
+  - to: # Allow To openldap
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: "openldap"
+    - podSelector:
+        matchLabels:
+          app: "openldap"
+    ports:
+    - protocol: TCP
+      port: 389
+  ingress:
+  - from: #Allow From Traefik
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: "traefik"
+    - podSelector:
+        matchLabels:
+          app.kubernetes.io/name: "traefik"

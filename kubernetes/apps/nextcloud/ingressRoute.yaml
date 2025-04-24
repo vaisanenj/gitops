@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute-nextcloud
+  namespace: nextcloud
+spec:
+  entryPoints:
+    - local-https
+  routes:
+  - kind: Rule
+    match: Host(`nextcloud.vaisanen.cloud`)
+    services:
+    - kind: Service
+      name: svc-nextcloud
+      port: 80
+  tls:
+    secretName: nextcloud-certificate-secret
