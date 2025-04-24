@@ -13,11 +13,7 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: HEAD
         directories:
-          - path: kubernetes/apps/cert-manager
-          - path: kubernetes/apps/intel-device-manager
-          - path: kubernetes/apps/traefik
-          - path: kubernetes/apps/metallb-system
-          - path: kubernetes/apps/longhorn-system
+          - path: kubernetes/apps/*
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
