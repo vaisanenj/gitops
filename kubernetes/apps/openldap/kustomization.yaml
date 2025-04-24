@@ -3,7 +3,7 @@ kind: Kustomization
 
 namespace: openldap
 resources:
-  - deployment.yaml
+  - statefulset.yaml
   - service.yaml
   - certificate.yaml
-  - ingressroute.yaml
+  - ingressRoute.yaml
