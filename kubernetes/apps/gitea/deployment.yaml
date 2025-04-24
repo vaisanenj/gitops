@@ -22,10 +22,3 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-          livenessProbe:
-            httpGet:
-              path: /api/healthz
-              port: http
-            initialDelaySeconds: 200
-            timeoutSeconds: 5
-            periodSeconds: 10
