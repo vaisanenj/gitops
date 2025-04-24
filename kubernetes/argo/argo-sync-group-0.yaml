@@ -17,6 +17,7 @@ spec:
           - path: kubernetes/apps/inter-device-manager
           - path: kubernetes/apps/longhorn-system
           - path: kubernetes/apps/metallb-system
+          - path: kubernetes/apps/mariadb
           - path: kubernetes/apps/traefik
   template:
     metadata:
