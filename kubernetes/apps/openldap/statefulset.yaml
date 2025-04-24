@@ -15,7 +15,7 @@ spec:
       storageClassName: longhorn
       resources:
         requests:
-          storage: 1Gi
+          storage: 64Mi
   template:
     spec:
       containers:
