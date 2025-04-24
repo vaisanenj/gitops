@@ -9,6 +9,13 @@ spec:
   - Egress
   - Ingress
   egress:
+  - to: #Allow WAN
+    - ipBlock:
+        cidr: 0.0.0.0/0
+        except:
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
   - to: # Allow to DNS
     - namespaceSelector:
         matchLabels:
