@@ -15,6 +15,7 @@ spec:
         directories:
           - path: kubernetes/apps/gameserver-enshrouded/overlay/*
           - path: kubernetes/apps/gameserver-satisfactory/overlay/*
+          - path: kubernetes/apps/gameserver-valheim/overlay/*
   template:
     metadata:
       name: '{{index .path.segments 2}}-{{.path.basenameNormalized}}'

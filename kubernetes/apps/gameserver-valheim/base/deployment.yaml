@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valheim
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: pvc-valheim
+      containers:
+        - name: valheim
+          image: lloesche/valheim-server
+          resources:
+              requests:
+                cpu: "500m"
+                memory: "2048Mi"
+          envFrom:
+            - configMapRef:
+                name: configmap-env
+          volumeMounts:
+            - name: data
+              subPath: config
+              mountPath: /config
+            - name: data
+              subPath: data
+              mountPath: /opt/valheim
