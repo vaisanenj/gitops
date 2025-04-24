@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: svc-openldap
   namespace: openldap
-  labels:
-    app: openldap
 spec:
   selector:
     app: openldap
