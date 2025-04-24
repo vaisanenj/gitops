@@ -10,5 +10,5 @@ commonAnnotations:
   application: enshrouded
   managed-by: "kustomize"
 
-commonLabels:
+labels:
   application: enshrouded

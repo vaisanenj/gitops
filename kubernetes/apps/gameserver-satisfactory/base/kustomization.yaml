@@ -10,5 +10,5 @@ commonAnnotations:
   application: satisfactory
   managed-by: "kustomize"
 
-commonLabels:
+labels:
   application: satisfactory
