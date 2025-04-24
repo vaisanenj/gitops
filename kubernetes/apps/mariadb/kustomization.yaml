@@ -5,7 +5,7 @@ namespace: mariadb
 resources:
   - statefulSet.yaml
   - service.yaml
-  - persistentVolumeClaim.yaml
+#  - persistentVolumeClaim.yaml
 
 labels:
   - includeSelectors: true
