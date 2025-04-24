@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute-longhorn
+  namespace: longhorn-system
+spec:
+  entryPoints:
+    - local-https
+  routes:
+  - kind: Rule
+    match: Host(`longhorn.vaisanen.cloud`)
+    services:
+    - kind: Service
+      name: longhorn-frontend
+      port: 80
+  tls:
+    secretName: longhorn-certificate-secret
