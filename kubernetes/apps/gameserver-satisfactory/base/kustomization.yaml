@@ -11,4 +11,6 @@ commonAnnotations:
   managed-by: "kustomize"
 
 labels:
-  application: satisfactory
+  - includeSelectors: true
+    pairs:
+      application: satisfactory

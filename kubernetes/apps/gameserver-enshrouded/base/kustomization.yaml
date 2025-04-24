@@ -11,4 +11,6 @@ commonAnnotations:
   managed-by: "kustomize"
 
 labels:
-  application: enshrouded
+  - includeSelectors: true
+    pairs:
+      application: enshrouded
