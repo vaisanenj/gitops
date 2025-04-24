@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+spec:
+  selector:
+  strategy:
+    type: Recreate
+  replicas: 1
+  template:
+    spec:
+      volumes:
+      - name: media
+        nfs: 
+          server: 192.168.20.119
+          path: /volume2/Media
+      - name: config
+        persistentVolumeClaim:
+          claimName: pvc-jellyfin
+      - name: tz
+        hostPath:
+          path: /usr/share/zoneinfo/Europe/Helsinki
+          type: File
+      containers:
+        - name: jellyfin
+          image: jellyfin/jellyfin:10.10.3
+          resources:
+            requests:
+              cpu: "300m"
+              memory: "4096Mi"
+              gpu.intel.com/i915: "1"
+            limits:
+              cpu: "1000m"
+              memory: "6144Mi"
+              gpu.intel.com/i915: "1"
+          volumeMounts:
+            - name: media
+              mountPath: /media
+            - name: config
+              mountPath: /config
+            - name: tz
+              mountPath: /etc/localtime
+          readinessProbe:
+            httpGet:
+                path: /health
+                port: 8096
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 2

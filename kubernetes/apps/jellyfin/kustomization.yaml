@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - certificate.yaml
+  - deployment.yaml
+  - ingress.yaml
+  - networkpolicies.yaml
+  - service.yaml
+  - persistentVolumeClaim.yaml
+
+namespace: jellyfin
+commonAnnotations:
+  application: jellyfin
+  managed-by: "kustomize"
+
+labels:
+  - includeSelectors: true
+    pairs:
+      application: jellyfin
