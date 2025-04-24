@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: ingressroute-phpldapadmin
+  namespace: openldap
+spec:
+  entryPoints:
+    - local-https
+  routes:
+  - kind: Rule
+    match: Host(`phpldapadmin.vaisanen.cloud`)
+    services:
+    - kind: Service
+      name: svc-openldap
+      port: 80
+  tls:
+    secretName: phpldapadmin-certificate-secret
