@@ -10,7 +10,7 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
-        repoURL: http://svc-gitea.gitea:3000/vaisajon/Kube-apps
+        repoURL: https://github.com/vaisanenj/gitops.git
         revision: HEAD
         directories:
           - path: kubernetes/apps/cert-manager
@@ -29,7 +29,7 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{.path.basenameNormalized}}'
       source:
-        repoURL: http://svc-gitea.gitea:3000/vaisajon/Kube-apps
+        repoURL: https://github.com/vaisanenj/gitops.git
         path: '{{.path.path}}'
         targetRevision: HEAD
       syncPolicy:
