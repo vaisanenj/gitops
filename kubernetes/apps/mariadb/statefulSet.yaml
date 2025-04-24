@@ -28,4 +28,4 @@ spec:
       storageClassName: longhorn-rc-1
       resources:
         requests:
-          storage: 1Gi
+          storage: 5Gi
