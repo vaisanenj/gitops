@@ -1,7 +1,7 @@
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
 metadata:
-  name: networkpolicy-jellyfin
+  name: networkpolicy-gitea
 spec:
   podSelector: {}
   policyTypes:
@@ -30,7 +30,7 @@ spec:
         matchLabels:
            app.kubernetes.io/name: argocd-server
   egress:
-  - to: #Block local address
+  - to: #Allow WAN
     - ipBlock:
         cidr: 0.0.0.0/0
         except:
@@ -44,7 +44,7 @@ spec:
     - podSelector:
         matchLabels:
           k8s-app: "kube-dns"
-  - to: #Allow LDAP connection
+  - to: #Allow LDAP
     - namespaceSelector:
         matchLabels:
           kubernetes.io/metadata.name: "openldap"
@@ -54,7 +54,7 @@ spec:
     ports:
     - protocol: TCP
       port: 389
-  - to: #Allow traffic to database
+  - to: #Allow Mariadb
     - namespaceSelector:
         matchLabels:
           kubernetes.io/metadata.name: "mariadb"
