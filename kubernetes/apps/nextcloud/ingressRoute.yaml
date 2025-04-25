@@ -6,6 +6,7 @@ metadata:
 spec:
   entryPoints:
     - local-https
+    - websecure
   routes:
   - kind: Rule
     match: Host(`nextcloud.vaisanen.cloud`)
