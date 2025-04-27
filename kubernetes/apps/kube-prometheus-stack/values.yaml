@@ -36,14 +36,10 @@ kube-prometheus-stack:
     alertmanagerSpec:
       replicas: 1
       podAntiAffinity: "hard"
-    ingress:
-      paths:
-        - alertmanager
 
   grafana:
     enabled: true
     fullnameOverride: grafana
-    path: /grafana
     forceDeployDatasources: false
     forceDeployDashboards: false
     defaultDashboardsEnabled: true
@@ -171,9 +167,6 @@ kube-prometheus-stack:
       retention: 24h
       enableAdminAPI: true
       walCompression: true
-    ingress:
-      paths:
-        - alertmanager
 
   thanosRuler:
     enabled: false
