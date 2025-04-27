@@ -36,19 +36,14 @@ kube-prometheus-stack:
     alertmanagerSpec:
       replicas: 1
       podAntiAffinity: "hard"
+    ingress:
+      paths:
+        - alertmanager
 
   grafana:
     enabled: true
-    ingress:
-      enabled: true
-      annotations: {
-        spec.ingressClassName: traefik
-      }
-      hosts:
-      - grafana.vaisanen.cloud
-      pathType: Prefix
-      path: /
     fullnameOverride: grafana
+    path: /grafana
     forceDeployDatasources: false
     forceDeployDashboards: false
     defaultDashboardsEnabled: true
@@ -176,6 +171,9 @@ kube-prometheus-stack:
       retention: 24h
       enableAdminAPI: true
       walCompression: true
+    ingress:
+      paths:
+        - alertmanager
 
   thanosRuler:
     enabled: false
