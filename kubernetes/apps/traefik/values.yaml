@@ -39,8 +39,8 @@ traefik:
       enabled: true
       matchRule: Host(`traefik.local`)
       entryPoints: ['local-https']
-    annotations:
-      part-of: traefik-helm-installation
+      annotations:
+        part-of: traefik-helm-installation
 
   service:
     enabled: true
