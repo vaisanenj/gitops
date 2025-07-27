@@ -8,10 +8,8 @@ spec:
     - local-https
   routes:
   - kind: Rule
-    match: Host(`gitea.vaisanen.cloud`)
+    match: Host(`gitea.local`)
     services:
     - kind: Service
       name: svc-gitea
       port: 3000
-  tls:
-    secretName: gitea-certificate-secret
