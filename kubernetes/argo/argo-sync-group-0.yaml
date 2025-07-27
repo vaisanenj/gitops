@@ -20,7 +20,7 @@ spec:
       annotations:
         argocd.argoproj.io/sync-wave: '0'
     spec:
-      project: default
+      project: cluster-setup
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{.path.basenameNormalized}}'
