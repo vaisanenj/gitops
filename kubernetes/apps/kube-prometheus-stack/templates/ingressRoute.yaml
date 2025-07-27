@@ -9,5 +9,6 @@ spec:
   - kind: Rule
     match: Host(`grafana.local`)
     services:
-    - kind: grafana
+    - kind: Service
+      name: grafana
       port: 80
