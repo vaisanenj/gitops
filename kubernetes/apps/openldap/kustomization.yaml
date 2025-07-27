@@ -5,7 +5,6 @@ namespace: openldap
 resources:
   - statefulset.yaml
   - service.yaml
-  - certificate.yaml
   - ingressRoute.yaml
 
 labels:

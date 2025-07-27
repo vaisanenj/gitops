@@ -8,10 +8,8 @@ spec:
     - local-https
   routes:
   - kind: Rule
-    match: Host(`phpldapadmin.vaisanen.cloud`)
+    match: Host(`phpldapadmin.local`)
     services:
     - kind: Service
       name: svc-openldap
       port: 80
-  tls:
-    secretName: phpldapadmin-certificate-secret

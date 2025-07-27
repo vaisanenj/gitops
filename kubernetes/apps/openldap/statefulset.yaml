@@ -27,7 +27,7 @@ spec:
             - name: LDAP_ORGANISATION
               value: "Home Inc."
             - name: LDAP_DOMAIN
-              value: vaisanen.cloud
+              value: local
             - name: LDAP_ADMIN_PASSWORD
               valueFrom:
                 secretKeyRef:
