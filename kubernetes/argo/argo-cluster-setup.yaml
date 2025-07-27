@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argo-sync-group-0
+  name: argo-cluster-setup
   namespace: argocd
 spec:
   syncPolicy:
@@ -17,8 +17,6 @@ spec:
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
-      annotations:
-        argocd.argoproj.io/sync-wave: '0'
     spec:
       project: cluster-setup
       destination:
