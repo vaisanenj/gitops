@@ -12,9 +12,9 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
-        revision: HEAD
+        revision: dev
         directories:
-          - path: kubernetes/apps/*
+          - path: kubernetes/apps/longhorn-system
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
@@ -26,7 +26,7 @@ spec:
       source:
         repoURL: https://github.com/vaisanenj/gitops.git
         path: '{{.path.path}}'
-        targetRevision: HEAD
+        targetRevision: dev
       syncPolicy:
         automated: {}
         syncOptions:
