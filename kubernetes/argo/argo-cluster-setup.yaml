@@ -16,6 +16,7 @@ spec:
           - path: kubernetes/apps/external-secrets
           - path: kubernetes/apps/intel-device-manager
           - path: kubernetes/apps/metallb-system
+          - path: kubernetes/apps/cert-manager
           - path: kubernetes/apps/traefik
           - path: kubernetes/apps/longhorn-system
           - path: kubernetes/apps/kube-prometheus-stack
