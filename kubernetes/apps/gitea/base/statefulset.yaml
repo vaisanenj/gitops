@@ -32,7 +32,7 @@ spec:
         env:
         - name: TZ
           value: Europe/Helsinki
-        - name: LOCAL_ROOT_URL
+        - name: ROOT_URL 
           value: https://gitea.local
         - name: GITEA__database__DB_TYPE
           value: mysql
