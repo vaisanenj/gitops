@@ -29,8 +29,6 @@ spec:
         env:
         - name: TZ
           value: Europe/Helsinki
-        - name: MYSQL_ROOT_PASSWORD
-          value: changeit
         volumeMounts:
          - name: data
            mountPath: /var/lib/mysql
