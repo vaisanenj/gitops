@@ -5,10 +5,8 @@ metadata:
   namespace: argocd
 spec:
   syncPolicy:
-    applicationsSync: create-update
-    preserveResourcesOnDeletion: true
-  strategy:
-    type: RollingSync
+    prune: true
+    selfHeal: true
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
@@ -16,9 +14,11 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: dev
         directories:
+          - path: kubernetes/apps/intel-device-manager
           - path: kubernetes/apps/metallb-system
           - path: kubernetes/apps/traefik
           - path: kubernetes/apps/longhorn-system
+          - path: kubernetes/apps/kube-prometheus-stack
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'
