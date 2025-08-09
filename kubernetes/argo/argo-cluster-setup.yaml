@@ -5,8 +5,9 @@ metadata:
   namespace: argocd
 spec:
   syncPolicy:
-    prune: true
-    selfHeal: true
+    automated:
+      prune: true
+      selfHeal: true
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
