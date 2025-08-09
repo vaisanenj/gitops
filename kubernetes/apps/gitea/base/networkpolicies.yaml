@@ -57,7 +57,7 @@ spec:
   - to: #Allow DB
     - podSelector:
         matchLabels:
-          app: "mariadb"
+          application: "mariadb"
     ports:
     - protocol: TCP
       port: 3306
