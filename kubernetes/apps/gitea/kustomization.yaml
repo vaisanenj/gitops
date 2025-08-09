@@ -1,18 +1,40 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - externalsecret.yaml
-  - deployment.yaml
-  - ingressRoute.yaml
-  - networkpolicies.yaml
-  - service.yaml
-  - persistentVolumeClaim.yaml
+  - base
+  - ../../resources/mariadb
   
-commonAnnotations:
-  application: gitea
-  managed-by: "kustomize"
-
-labels:
-  - includeSelectors: true
-    pairs:
-      application: gitea
+patches:
+- patch: |-
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: MARIADB_DATABASE
+        value: nextcloud
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: MARIADB_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: gitea-secrets
+            key: db-root-password
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: MARIADB_USER
+        valueFrom:
+          secretKeyRef:
+            name: gitea-secrets
+            key: db-user
+    - op: add
+      path: "/spec/template/spec/containers/0/env/-"
+      value:
+        name: MARIADB_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: gitea-secrets
+            key: db-password
+  target:
+    kind: StatefulSet
+    name: mariadb

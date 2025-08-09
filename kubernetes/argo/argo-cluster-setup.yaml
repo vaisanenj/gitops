@@ -17,9 +17,10 @@ spec:
           - path: kubernetes/apps/external-secrets
           - path: kubernetes/apps/intel-device-manager
           - path: kubernetes/apps/cert-manager
-          - path: kubernetes/apps/openldap
           - path: kubernetes/apps/traefik
           - path: kubernetes/apps/longhorn-system
+          - path: kubernetes/apps/openldap
+          - path: kubernetes/apps/gitea
           - path: kubernetes/apps/kube-prometheus-stack
   template:
     metadata:
