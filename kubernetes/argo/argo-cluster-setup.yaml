@@ -13,6 +13,7 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: dev
         directories:
+          - path: kubernetes/apps/external-secrets
           - path: kubernetes/apps/intel-device-manager
           - path: kubernetes/apps/metallb-system
           - path: kubernetes/apps/traefik
