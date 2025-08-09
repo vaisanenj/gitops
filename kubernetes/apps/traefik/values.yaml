@@ -9,8 +9,6 @@ traefik:
   - "--api"
   - "--api.dashboard=true"
   - "--api.insecure=true"
-#  - "--experimental.plugins.blockpath.moduleName=github.com/traefik/plugin-blockpath"
-#  - "--experimental.plugins.blockpath.version=v0.2.1"
 
   ports:
     web:
@@ -41,7 +39,3 @@ traefik:
       entryPoints: ['local-https']
       annotations:
         part-of: traefik-helm-installation
-
-  service:
-    enabled: true
-    loadBalancerIP: 192.168.20.160

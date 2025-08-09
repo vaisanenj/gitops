@@ -7,6 +7,8 @@ spec:
   syncPolicy:
     applicationsSync: create-update
     preserveResourcesOnDeletion: true
+  strategy:
+    type: RollingSync
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
@@ -14,6 +16,8 @@ spec:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: dev
         directories:
+          - path: kubernetes/apps/metallb-system
+          - path: kubernetes/apps/traefik
           - path: kubernetes/apps/longhorn-system
   template:
     metadata:
