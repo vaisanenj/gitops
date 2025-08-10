@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argo-cluster-setup
+  name: argo-apps-of-apps
   namespace: argocd
 spec:
   syncPolicy:
