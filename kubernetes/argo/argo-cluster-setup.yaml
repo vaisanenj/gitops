@@ -19,7 +19,28 @@ spec:
               - external-secrets
               - intel-device-manager
               - metallb-system
+        - matchExpressions: # second setup
+          - key: app.kubernetes.io/instance
+            operator: in
+            values:
+              - cert-manager
+        - matchExpressions: # third setup
+          - key: app.kubernetes.io/instance
+            operator: in
+            values:
               - traefik
+        - matchExpressions: # fourth setup
+          - key: app.kubernetes.io/instance
+            operator: in
+            values:
+              - longhorn
+        - matchExpressions: # fifth setup
+          - key: app.kubernetes.io/instance
+            operator: in
+            values:
+              - openldap
+              - kube-prometheus-stack
+              - gitea
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
