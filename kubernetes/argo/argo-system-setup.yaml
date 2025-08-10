@@ -8,25 +8,14 @@ spec:
     automated:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
-  strategy:
-    type: RollingSync
-    RollingSync:
-      steps:
-        - maxUpdate: 1
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: dev
         directories:
-          - path: kubernetes/apps/metallb-system
-          - path: kubernetes/apps/intel-device-manager
-          - path: kubernetes/apps/external-secrets
-          - path: kubernetes/apps/cert-manager
-          - path: kubernetes/apps/traefik
-          - path: kubernetes/apps/longhorn-system
-          - path: kubernetes/apps/openldap
           - path: kubernetes/apps/gitea
           - path: kubernetes/apps/kube-prometheus-stack
+          - path: kubernetes/apps/openldap
   template:
     metadata:
       name: '{{.path.basenameNormalized}}'

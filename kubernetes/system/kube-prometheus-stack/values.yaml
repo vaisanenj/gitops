@@ -50,15 +50,6 @@ kube-prometheus-stack:
       existingSecret: grafana-admin-credentials
       userKey: admin-user
       passwordKey: admin-password
-    persistence:
-      enabled: true
-      type: pvc
-      storageClassName: longhorn
-      accessModes:
-      - ReadWriteOnce
-      size: 1Gi
-      finalizers:
-      - kubernetes.io/pvc-protection
 
   kubeApiServer:
     enabled: true
