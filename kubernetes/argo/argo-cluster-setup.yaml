@@ -8,6 +8,18 @@ spec:
     automated:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
+  strategy:
+    type: RollingSync
+    rollingSync:
+      steps:
+        - matchExpressions: # First setup
+          - key: app.kubernetes.io/instance
+            operator: in
+            values:
+              - external-secrets
+              - intel-device-manager
+              - metallb-system
+              - traefik
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
