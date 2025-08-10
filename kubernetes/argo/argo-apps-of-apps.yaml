@@ -14,7 +14,6 @@ spec:
         revision: dev
         directories:
           - path: kubernetes/apps/gitea
-          - path: kubernetes/apps/kube-prometheus-stack
           - path: kubernetes/apps/openldap
   template:
     metadata:
