@@ -10,45 +10,17 @@ spec:
   goTemplateOptions: ["missingkey=error"]
   strategy:
     type: RollingSync
-    rollingSync:
+    RollingSync:
       steps:
-        - matchExpressions: # First setup
-          - key: app.kubernetes.io/instance
-            operator: in
-            values:
-              - external-secrets
-              - intel-device-manager
-              - metallb-system
-        - matchExpressions: # second setup
-          - key: app.kubernetes.io/instance
-            operator: in
-            values:
-              - cert-manager
-        - matchExpressions: # third setup
-          - key: app.kubernetes.io/instance
-            operator: in
-            values:
-              - traefik
-        - matchExpressions: # fourth setup
-          - key: app.kubernetes.io/instance
-            operator: in
-            values:
-              - longhorn
-        - matchExpressions: # fifth setup
-          - key: app.kubernetes.io/instance
-            operator: in
-            values:
-              - openldap
-              - kube-prometheus-stack
-              - gitea
+        - maxUpdate: 1
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
         revision: dev
         directories:
           - path: kubernetes/apps/metallb-system
-          - path: kubernetes/apps/external-secrets
           - path: kubernetes/apps/intel-device-manager
+          - path: kubernetes/apps/external-secrets
           - path: kubernetes/apps/cert-manager
           - path: kubernetes/apps/traefik
           - path: kubernetes/apps/longhorn-system
