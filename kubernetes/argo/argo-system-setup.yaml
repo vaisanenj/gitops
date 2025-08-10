@@ -8,11 +8,6 @@ spec:
     automated:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
-  strategy:
-    type: RollingSync
-    rollingSync:
-      steps:
-        - maxUpdate: 1
   generators:
     - git:
         repoURL: https://github.com/vaisanenj/gitops.git
